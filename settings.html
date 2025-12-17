@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings - FinCore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <nav id="sidebar">
+        <!-- Brand Logo -->
+        <div class="sidebar-brand-section">
+            <div class="brand-logo">
+                <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <span class="brand-name">Aldila</span>
+        </div>
+        
+        <div class="px-3 mb-2"><span class="sidebar-label">Main Menu</span></div>
+
+        <ul class="list-unstyled components">
+            <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+            <li><a href="#masterSubmenu" data-bs-toggle="collapse"><i class="bi bi-database"></i> Master Data</a>
+                 <ul class="collapse list-unstyled" id="masterSubmenu">
+                    <li><a href="coa.html">Chart of Accounts</a></li>
+                    <li><a href="customers.html">Customers</a></li>
+                    <li><a href="vendors.html">Vendors</a></li>
+                </ul>
+            </li>
+            <li><a href="#transSubmenu" data-bs-toggle="collapse"><i class="bi bi-receipt"></i> Transactions</a>
+                <ul class="collapse list-unstyled" id="transSubmenu">
+                    <li><a href="journal.html">Journal Entry</a></li>
+                    <li><a href="sales.html">Sales / Invoices</a></li>
+                    <li><a href="purchase.html">Purchases</a></li>
+                    <li><a href="expenses.html">Expenses</a></li>
+                </ul>
+            </li>
+            <li><a href="reports.html"><i class="bi bi-file-earmark-bar-graph"></i> Reports</a></li>
+            <li><a href="settings.html" class="active"><i class="bi bi-gear"></i> Settings</a></li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <!-- New Topbar Design -->
+        <nav class="navbar navbar-custom">
+            <div class="d-flex align-items-center">
+                <button type="button" id="sidebarCollapse" class="btn btn-link text-dark p-0 me-3"><i class="bi bi-list fs-4"></i></button>
+                <h5 class="mb-0 fw-bold">Pengaturan</h5>
+            </div>
+            <div class="search-wrapper">
+                <i class="bi bi-search text-muted"></i>
+                <input type="text" placeholder="Search settings...">
+                <span class="search-badge">⌘ K</span>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="top-icon-btn"><i class="bi bi-envelope"></i><span class="notification-dot"></span></div>
+                <div class="top-icon-btn me-4"><i class="bi bi-bell"></i><span class="notification-dot"></span></div>
+                <div class="profile-widget">
+                    <img src="assets/img/profile.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Pevita+Sarma&background=random&color=fff'" alt="Profile">
+                    <div class="ms-2 d-none d-lg-block">
+                        <div class="fw-bold fs-6 lh-1">Pevita Sarma</div>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="main-container">
+            <h4 class="mb-4">System Settings</h4>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-header">Company Profile</div>
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">Company Name</label>
+                                    <input type="text" class="form-control" value="FinCore Solutions LLC">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" value="admin@fincore.com">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Phone</label>
+                                        <input type="text" class="form-control" value="+62 21 555-0000">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Address</label>
+                                    <textarea class="form-control" rows="2">Jl. Sudirman No. 123, Jakarta</textarea>
+                                </div>
+                                <button class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header">Preferences</div>
+                        <div class="card-body">
+                             <div class="mb-3">
+                                <label class="form-label">Currency</label>
+                                <select class="form-select">
+                                    <option>IDR (Rp)</option>
+                                    <option>USD ($)</option>
+                                </select>
+                            </div>
+                             <div class="mb-3">
+                                <label class="form-label">Timezone</label>
+                                <select class="form-select">
+                                    <option>UTC+7 (Jakarta)</option>
+                                    <option>UTC-5 (New York)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

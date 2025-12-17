@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports - FinCore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <nav id="sidebar">
+        <!-- Brand Logo -->
+        <div class="sidebar-brand-section">
+            <div class="brand-logo">
+                <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <span class="brand-name">Aldila</span>
+        </div>
+        
+        <div class="px-3 mb-2"><span class="sidebar-label">Main Menu</span></div>
+
+        <ul class="list-unstyled components">
+            <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+            <li><a href="#masterSubmenu" data-bs-toggle="collapse"><i class="bi bi-database"></i> Master Data</a>
+                 <ul class="collapse list-unstyled" id="masterSubmenu">
+                    <li><a href="coa.html">Chart of Accounts</a></li>
+                    <li><a href="customers.html">Customers</a></li>
+                    <li><a href="vendors.html">Vendors</a></li>
+                </ul>
+            </li>
+            <li><a href="#transSubmenu" data-bs-toggle="collapse"><i class="bi bi-receipt"></i> Transactions</a>
+                <ul class="collapse list-unstyled" id="transSubmenu">
+                    <li><a href="journal.html">Journal Entry</a></li>
+                    <li><a href="sales.html">Sales / Invoices</a></li>
+                    <li><a href="purchase.html">Purchases</a></li>
+                    <li><a href="expenses.html">Expenses</a></li>
+                </ul>
+            </li>
+            <li><a href="reports.html" class="active"><i class="bi bi-file-earmark-bar-graph"></i> Reports</a></li>
+            <li><a href="settings.html"><i class="bi bi-gear"></i> Settings</a></li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <!-- New Topbar Design -->
+        <nav class="navbar navbar-custom">
+            <div class="d-flex align-items-center">
+                <button type="button" id="sidebarCollapse" class="btn btn-link text-dark p-0 me-3"><i class="bi bi-list fs-4"></i></button>
+                <h5 class="mb-0 fw-bold">Laporan Keuangan</h5>
+            </div>
+            <div class="search-wrapper">
+                <i class="bi bi-search text-muted"></i>
+                <input type="text" placeholder="Search report...">
+                <span class="search-badge">⌘ K</span>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="top-icon-btn"><i class="bi bi-envelope"></i><span class="notification-dot"></span></div>
+                <div class="top-icon-btn me-4"><i class="bi bi-bell"></i><span class="notification-dot"></span></div>
+                <div class="profile-widget">
+                    <img src="assets/img/profile.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Pevita+Sarma&background=random&color=fff'" alt="Profile">
+                    <div class="ms-2 d-none d-lg-block">
+                        <div class="fw-bold fs-6 lh-1">Pevita Sarma</div>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="main-container">
+            <!-- Filter Section -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div></div>
+                <div class="d-flex gap-2">
+                    <input type="date" class="form-control" value="2023-01-01">
+                    <span class="align-self-center">s/d</span>
+                    <input type="date" class="form-control" value="2023-12-31">
+                    <button class="btn btn-primary">Tampilkan</button>
+                </div>
+            </div>
+
+            <!-- Report Tabs -->
+            <div class="card">
+                <div class="card-header bg-white border-bottom-0 pb-0">
+                    <ul class="nav nav-tabs card-header-tabs" id="reportTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pl-tab" data-bs-toggle="tab" data-bs-target="#pl" type="button" role="tab">Profit & Loss</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="bs-tab" data-bs-toggle="tab" data-bs-target="#bs" type="button" role="tab">Balance Sheet</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="cf-tab" data-bs-toggle="tab" data-bs-target="#cf" type="button" role="tab">Cash Flow</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="reportTabsContent">
+                        
+                        <!-- Profit & Loss Tab -->
+                        <div class="tab-pane fade show active" id="pl" role="tabpanel">
+                            <h5 class="text-center mb-4">Laporan Laba Rugi (Profit & Loss) <br><small class="text-muted fs-6">Periode: Jan 2023 - Des 2023</small></h5>
+                            <table class="table table-striped table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Kategori</th>
+                                        <th class="text-end">Jumlah</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="fw-bold bg-light"><td colspan="2">PENDAPATAN</td></tr>
+                                    <tr><td>Pendapatan Jasa</td><td class="text-end">Rp 1.800.000.000</td></tr>
+                                    <tr><td>Pendapatan Lain-lain</td><td class="text-end">Rp 525.000.000</td></tr>
+                                    <tr class="fw-bold text-success"><td>Total Pendapatan</td><td class="text-end">Rp 2.325.000.000</td></tr>
+                                    
+                                    <tr class="fw-bold bg-light"><td colspan="2">BEBAN POKOK</td></tr>
+                                    <tr><td>Beban Jasa Langsung</td><td class="text-end">(Rp 450.000.000)</td></tr>
+                                    <tr class="fw-bold"><td>Laba Kotor</td><td class="text-end">Rp 1.875.000.000</td></tr>
+
+                                    <tr class="fw-bold bg-light"><td colspan="2">BEBAN OPERASIONAL</td></tr>
+                                    <tr><td>Gaji & Tunjangan</td><td class="text-end">Rp 600.000.000</td></tr>
+                                    <tr><td>Sewa Kantor</td><td class="text-end">Rp 150.000.000</td></tr>
+                                    <tr><td>Listrik & Air</td><td class="text-end">Rp 45.000.000</td></tr>
+                                    <tr><td>Pemasaran</td><td class="text-end">Rp 75.000.000</td></tr>
+                                    <tr class="fw-bold text-danger"><td>Total Beban Operasional</td><td class="text-end">(Rp 870.000.000)</td></tr>
+                                    
+                                    <tr class="fw-bold fs-5 bg-primary bg-opacity-10">
+                                        <td>LABA BERSIH</td>
+                                        <td class="text-end">Rp 1.005.000.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Balance Sheet Tab -->
+                        <div class="tab-pane fade" id="bs" role="tabpanel">
+                            <h5 class="text-center mb-4">Neraca Keuangan (Balance Sheet) <br><small class="text-muted fs-6">Per 31 Des 2023</small></h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <table class="table table-bordered">
+                                        <thead class="table-light"><tr><th colspan="2">ASET</th></tr></thead>
+                                        <tbody>
+                                            <tr class="fw-bold bg-light"><td colspan="2">Aset Lancar</td></tr>
+                                            <tr><td>Kas & Bank</td><td class="text-end">Rp 1.867.500.000</td></tr>
+                                            <tr><td>Piutang Usaha</td><td class="text-end">Rp 250.000.000</td></tr>
+                                            <tr><td>Perlengkapan</td><td class="text-end">Rp 30.000.000</td></tr>
+                                            
+                                            <tr class="fw-bold bg-light"><td colspan="2">Aset Tetap</td></tr>
+                                            <tr><td>Peralatan Kantor</td><td class="text-end">Rp 150.000.000</td></tr>
+                                            <tr><td>Kendaraan</td><td class="text-end">Rp 400.000.000</td></tr>
+                                            <tr><td>Akumulasi Penyusutan</td><td class="text-end text-danger">(Rp 50.000.000)</td></tr>
+                                            
+                                            <tr class="fw-bold bg-primary bg-opacity-10">
+                                                <td>TOTAL ASET</td>
+                                                <td class="text-end">Rp 2.647.500.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <table class="table table-bordered">
+                                        <thead class="table-light"><tr><th colspan="2">KEWAJIBAN & EKUITAS</th></tr></thead>
+                                        <tbody>
+                                            <tr class="fw-bold bg-light"><td colspan="2">Kewajiban</td></tr>
+                                            <tr><td>Hutang Usaha</td><td class="text-end">Rp 120.000.000</td></tr>
+                                            <tr><td>Hutang Pajak</td><td class="text-end">Rp 45.000.000</td></tr>
+                                            
+                                            <tr class="fw-bold bg-light"><td colspan="2">Ekuitas</td></tr>
+                                            <tr><td>Modal Disetor</td><td class="text-end">Rp 1.500.000.000</td></tr>
+                                            <tr><td>Laba Ditahan</td><td class="text-end">Rp 982.500.000</td></tr>
+                                            
+                                            <tr class="fw-bold bg-primary bg-opacity-10">
+                                                <td>TOTAL KEWAJIBAN & EKUITAS</td>
+                                                <td class="text-end">Rp 2.647.500.000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cash Flow Tab -->
+                        <div class="tab-pane fade" id="cf" role="tabpanel">
+                             <h5 class="text-center mb-4">Arus Kas (Cash Flow) <br><small class="text-muted fs-6">Periode: Jan 2023 - Des 2023</small></h5>
+                             <table class="table table-hover">
+                                <tbody>
+                                    <tr class="fw-bold bg-light"><td colspan="2">Arus Kas dari Aktivitas Operasional</td></tr>
+                                    <tr><td>Penerimaan dari Pelanggan</td><td class="text-end">Rp 2.100.000.000</td></tr>
+                                    <tr><td>Pembayaran ke Pemasok</td><td class="text-end">(Rp 400.000.000)</td></tr>
+                                    <tr><td>Pembayaran Beban Operasional</td><td class="text-end">(Rp 750.000.000)</td></tr>
+                                    <tr class="fw-bold"><td>Kas Bersih dari Operasional</td><td class="text-end">Rp 950.000.000</td></tr>
+
+                                    <tr class="fw-bold bg-light"><td colspan="2">Arus Kas dari Aktivitas Investasi</td></tr>
+                                    <tr><td>Pembelian Aset Tetap</td><td class="text-end">(Rp 200.000.000)</td></tr>
+                                    <tr class="fw-bold"><td>Kas Bersih dari Investasi</td><td class="text-end">(Rp 200.000.000)</td></tr>
+
+                                    <tr class="fw-bold bg-light"><td colspan="2">Arus Kas dari Aktivitas Pendanaan</td></tr>
+                                    <tr><td>Penyetoran Modal</td><td class="text-end">Rp 500.000.000</td></tr>
+                                    <tr><td>Pembayaran Dividen</td><td class="text-end">(Rp 100.000.000)</td></tr>
+                                    <tr class="fw-bold"><td>Kas Bersih dari Pendanaan</td><td class="text-end">Rp 400.000.000</td></tr>
+
+                                    <tr class="fw-bold fs-5 bg-success bg-opacity-10 mt-3">
+                                        <td>KENAIKAN BERSIH KAS</td>
+                                        <td class="text-end">Rp 1.150.000.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Saldo Kas Awal</td>
+                                        <td class="text-end">Rp 717.500.000</td>
+                                    </tr>
+                                    <tr class="fw-bold">
+                                        <td>Saldo Kas Akhir</td>
+                                        <td class="text-end">Rp 1.867.500.000</td>
+                                    </tr>
+                                </tbody>
+                             </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

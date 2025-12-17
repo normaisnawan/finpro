@@ -1,0 +1,286 @@
+/* FinCore Custom CSS */
+:root {
+    --fc-primary: #312e81; /* Indigo 900 */
+    --fc-sidebar-bg: #2a237e; /* Vibrant Indigo/Purple from reference */
+    --fc-sidebar-width: 260px;
+    --fc-header-height: 70px;
+    --fc-text-light: #e0e7ff;
+    --fc-accent: #10b981;
+    --fc-bg: #f9fafb;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--fc-bg);
+    color: #334155;
+    overflow-x: hidden;
+}
+
+/* --- Layout --- */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Sidebar */
+#sidebar {
+    min-width: var(--fc-sidebar-width);
+    max-width: var(--fc-sidebar-width);
+    background: var(--fc-sidebar-bg);
+    background: linear-gradient(180deg, #302b9e 0%, #241d75 100%);
+    color: #fff;
+    transition: all 0.3s;
+    min-height: 100vh;
+    z-index: 999;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+#sidebar.active {
+    margin-left: calc(var(--fc-sidebar-width) * -1);
+}
+
+/* Sidebar Brand Header (New) */
+.sidebar-brand-section {
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.brand-logo {
+    width: 38px;
+    height: 38px;
+    background-color: #2563eb; /* Vibrant Blue */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    margin-right: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.brand-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+
+.sidebar-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+    padding-left: 10px; /* Align with menu items */
+}
+
+/* Menu Components */
+#sidebar ul.components {
+    padding: 0 10px;
+}
+
+#sidebar ul li {
+    margin-bottom: 2px;
+}
+
+#sidebar ul li a {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: 0.2s;
+    border-radius: 4px;
+    border-left: none; /* Removed from previous design */
+}
+
+#sidebar ul li a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#sidebar ul li a.active {
+    color: #fff;
+    background: linear-gradient(90deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+    font-weight: 500;
+    border-left: 3px solid #6366f1; /* Accent on left inside the item */
+}
+
+#sidebar ul li a i {
+    margin-right: 12px;
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+}
+
+#sidebar ul li a.active i {
+    color: #fff;
+}
+
+/* Submenu */
+#sidebar .dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    right: 15px;
+    transform: rotate(0deg);
+    transition: transform 0.2s;
+    opacity: 0.5;
+}
+
+#sidebar .dropdown-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+
+#sidebar ul ul {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+#sidebar ul ul a {
+    font-size: 0.85em;
+    padding-left: 52px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background: transparent;
+}
+
+/* Content Area */
+#content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Topbar Redesign */
+.navbar-custom {
+    background: #fff;
+    border-bottom: 1px solid #f1f5f9;
+    height: var(--fc-header-height);
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper {
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    width: 320px;
+    margin: 0 auto; /* Center it */
+}
+
+.search-wrapper input {
+    border: none;
+    background: transparent;
+    font-size: 0.9rem;
+    color: #64748b;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.search-wrapper input:focus {
+    outline: none;
+}
+
+.search-badge {
+    font-size: 0.75rem;
+    background: #fff;
+    color: #64748b;
+    padding: 2px 6px;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.top-icon-btn {
+    position: relative;
+    color: #64748b;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.top-icon-btn:hover {
+    color: var(--fc-primary);
+}
+
+.notification-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background-color: #ef4444;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.profile-widget {
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #e2e8f0;
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+.profile-widget img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.main-container {
+    padding: 30px;
+    flex: 1;
+}
+
+/* Utilities & Others */
+.text-accent { color: var(--fc-accent) !important; }
+.card {
+    border: none;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    margin-bottom: 24px;
+}
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+}
+
+/* Financial Specifics */
+.amount-pos { color: var(--fc-accent); }
+.amount-neg { color: #ef4444; }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: calc(var(--fc-sidebar-width) * -1);
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    .search-wrapper {
+        display: none;
+    }
+    .navbar-custom {
+        padding: 0 15px;
+    }
+}

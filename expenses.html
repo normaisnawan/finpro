@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expenses - FinCore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <nav id="sidebar">
+        <!-- Brand Logo -->
+        <div class="sidebar-brand-section">
+            <div class="brand-logo">
+                <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <span class="brand-name">Aldila</span>
+        </div>
+        
+        <div class="px-3 mb-2"><span class="sidebar-label">Main Menu</span></div>
+
+        <ul class="list-unstyled components">
+            <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+            <li>
+                <a href="#masterSubmenu" data-bs-toggle="collapse" class="dropdown-toggle"><i class="bi bi-database"></i> Master Data</a>
+                <ul class="collapse list-unstyled" id="masterSubmenu">
+                    <li><a href="coa.html">Chart of Accounts</a></li>
+                    <li><a href="customers.html">Customers</a></li>
+                    <li><a href="vendors.html">Vendors</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#transSubmenu" data-bs-toggle="collapse" class="dropdown-toggle active" aria-expanded="true"><i class="bi bi-receipt"></i> Transactions</a>
+                <ul class="collapse show list-unstyled" id="transSubmenu">
+                    <li><a href="journal.html">Journal Entry</a></li>
+                    <li><a href="sales.html">Sales / Invoices</a></li>
+                    <li><a href="purchase.html">Purchases</a></li>
+                    <li><a href="expenses.html" class="active">Expenses</a></li>
+                </ul>
+            </li>
+            <li><a href="reports.html"><i class="bi bi-file-earmark-bar-graph"></i> Reports</a></li>
+            <li><a href="settings.html"><i class="bi bi-gear"></i> Settings</a></li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <!-- New Topbar Design -->
+        <nav class="navbar navbar-custom">
+            <div class="d-flex align-items-center">
+                <button type="button" id="sidebarCollapse" class="btn btn-link text-dark p-0 me-3"><i class="bi bi-list fs-4"></i></button>
+                <h5 class="mb-0 fw-bold">Pengeluaran</h5>
+            </div>
+            <div class="search-wrapper">
+                <i class="bi bi-search text-muted"></i>
+                <input type="text" placeholder="Search expense...">
+                <span class="search-badge">⌘ K</span>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="top-icon-btn"><i class="bi bi-envelope"></i><span class="notification-dot"></span></div>
+                <div class="top-icon-btn me-4"><i class="bi bi-bell"></i><span class="notification-dot"></span></div>
+                <div class="profile-widget">
+                    <img src="assets/img/profile.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Pevita+Sarma&background=random&color=fff'" alt="Profile">
+                    <div class="ms-2 d-none d-lg-block">
+                        <div class="fw-bold fs-6 lh-1">Pevita Sarma</div>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="main-container">
+            <div class="row">
+                <!-- Add Expense Form -->
+                <div class="col-lg-4">
+                    <h4 class="mb-3">Catat Pengeluaran</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">Kategori</label>
+                                    <select class="form-select">
+                                        <option>Makan & Hiburan</option>
+                                        <option>Perjalanan Dinas</option>
+                                        <option>Perlengkapan Kantor</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Jumlah</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">Rp</span>
+                                        <input type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Tanggal</label>
+                                    <input type="date" class="form-control" value="2023-10-25">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Bayar Via</label>
+                                    <select class="form-select">
+                                        <option>Kas Kecil</option>
+                                        <option>Kartu Perusahaan</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Catatan</label>
+                                    <textarea class="form-control" rows="2"></textarea>
+                                </div>
+                                <div class="d-grid">
+                                    <button class="btn btn-primary">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expense History -->
+                <div class="col-lg-8">
+                    <h4 class="mb-3">Pengeluaran Terbaru</h4>
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Tanggal</th>
+                                        <th>Kategori</th>
+                                        <th>Catatan</th>
+                                        <th class="text-end">Jumlah</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>24 Okt 2023</td>
+                                        <td>Perjalanan</td>
+                                        <td>Grab ke Klien</td>
+                                        <td class="text-end fw-bold">Rp 350.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>22 Okt 2023</td>
+                                        <td>Makan</td>
+                                        <td>Makan Siang Tim</td>
+                                        <td class="text-end fw-bold">Rp 1.250.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20 Okt 2023</td>
+                                        <td>Perlengkapan</td>
+                                        <td>Tinta Printer</td>
+                                        <td class="text-end fw-bold">Rp 1.800.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

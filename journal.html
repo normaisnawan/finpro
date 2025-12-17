@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Journal Entry - FinCore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <nav id="sidebar">
+        <!-- Brand Logo -->
+        <div class="sidebar-brand-section">
+            <div class="brand-logo">
+                <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <span class="brand-name">Aldila</span>
+        </div>
+        
+        <div class="px-3 mb-2"><span class="sidebar-label">Main Menu</span></div>
+
+        <ul class="list-unstyled components">
+            <li><a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+            <li>
+                <a href="#masterSubmenu" data-bs-toggle="collapse" class="dropdown-toggle"><i class="bi bi-database"></i> Master Data</a>
+                <ul class="collapse list-unstyled" id="masterSubmenu">
+                    <li><a href="coa.html">Chart of Accounts</a></li>
+                    <li><a href="customers.html">Customers</a></li>
+                    <li><a href="vendors.html">Vendors</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#transSubmenu" data-bs-toggle="collapse" class="dropdown-toggle active" aria-expanded="true"><i class="bi bi-receipt"></i> Transactions</a>
+                <ul class="collapse show list-unstyled" id="transSubmenu">
+                    <li><a href="journal.html" class="active">Journal Entry</a></li>
+                    <li><a href="sales.html">Sales / Invoices</a></li>
+                    <li><a href="purchase.html">Purchases</a></li>
+                    <li><a href="expenses.html">Expenses</a></li>
+                </ul>
+            </li>
+            <li><a href="reports.html"><i class="bi bi-file-earmark-bar-graph"></i> Reports</a></li>
+            <li><a href="settings.html"><i class="bi bi-gear"></i> Settings</a></li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <!-- New Topbar Design -->
+        <nav class="navbar navbar-custom">
+            <div class="d-flex align-items-center">
+                <button type="button" id="sidebarCollapse" class="btn btn-link text-dark p-0 me-3"><i class="bi bi-list fs-4"></i></button>
+                <h5 class="mb-0 fw-bold">Jurnal Umum</h5>
+            </div>
+            <div class="search-wrapper">
+                <i class="bi bi-search text-muted"></i>
+                <input type="text" placeholder="Search...">
+                <span class="search-badge">⌘ K</span>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="top-icon-btn"><i class="bi bi-envelope"></i><span class="notification-dot"></span></div>
+                <div class="top-icon-btn me-4"><i class="bi bi-bell"></i><span class="notification-dot"></span></div>
+                <div class="profile-widget">
+                    <img src="assets/img/profile.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Pevita+Sarma&background=random&color=fff'" alt="Profile">
+                    <div class="ms-2 d-none d-lg-block">
+                        <div class="fw-bold fs-6 lh-1">Pevita Sarma</div>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="main-container">
+            <h4 class="mb-4">Buat Jurnal Baru</h4>
+            
+            <form>
+                <div class="card mb-4">
+                    <div class="card-header">Informasi Umum</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Tanggal Jurnal</label>
+                                <input type="date" class="form-control" value="2023-10-25">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">No. Referensi</label>
+                                <input type="text" class="form-control" placeholder="e.g. JE-2023-001">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label">Memo</label>
+                                <input type="text" class="form-control" placeholder="Penyesuaian Umum">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>Baris Jurnal</span>
+                        <div id="balanceMessage"><span class="text-success fw-bold"><i class="bi bi-check-circle"></i> Balanced</span></div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mb-0 align-middle">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 30%">Akun</th>
+                                        <th>Keterangan</th>
+                                        <th style="width: 15%">Debit</th>
+                                        <th style="width: 15%">Kredit</th>
+                                        <th style="width: 50px"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="journalItemsBody">
+                                    <!-- Row 1 -->
+                                    <tr>
+                                        <td>
+                                            <select class="form-select">
+                                                <option value="1001">1001 - Kas Besar</option>
+                                                <option value="4001">4001 - Pendapatan Jasa</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" class="form-control" value="Penjualan Tunai"></td>
+                                        <td><div class="input-group"><span class="input-group-text">Rp</span><input type="number" class="form-control debit-input" value="1500000"></div></td>
+                                        <td><div class="input-group"><span class="input-group-text">Rp</span><input type="number" class="form-control credit-input" value="0"></div></td>
+                                        <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger remove-row"><i class="bi bi-trash"></i></button></td>
+                                    </tr>
+                                    <!-- Row 2 -->
+                                    <tr>
+                                        <td>
+                                            <select class="form-select">
+                                                <option value="1001">1001 - Kas Besar</option>
+                                                <option value="4001" selected>4001 - Pendapatan Jasa</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="text" class="form-control" value="Penjualan Tunai"></td>
+                                        <td><div class="input-group"><span class="input-group-text">Rp</span><input type="number" class="form-control debit-input" value="0"></div></td>
+                                        <td><div class="input-group"><span class="input-group-text">Rp</span><input type="number" class="form-control credit-input" value="1500000"></div></td>
+                                        <td class="text-center"><button type="button" class="btn btn-sm btn-outline-danger remove-row"><i class="bi bi-trash"></i></button></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2" class="text-end fw-bold">Totals</td>
+                                        <td class="fw-bold text-end" id="totalDebit">1.500.000</td>
+                                        <td class="fw-bold text-end" id="totalCredit">1.500.000</td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <button type="button" class="btn btn-outline-primary" id="addRowBtn"><i class="bi bi-plus"></i> Tambah Baris</button>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-4 gap-2">
+                    <button type="button" class="btn btn-light border">Simpan Draft</button>
+                    <button type="submit" class="btn btn-primary" id="btnSubmitJournal">Posting Jurnal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

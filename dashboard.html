@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FinCore Admin</title>
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <!-- Brand Logo -->
+        <div class="sidebar-brand-section">
+            <div class="brand-logo">
+                <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <span class="brand-name">Aldila</span>
+        </div>
+        
+        <div class="px-3 mb-2"><span class="sidebar-label">Main Menu</span></div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="#masterSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="bi bi-database"></i> Master Data
+                </a>
+                <ul class="collapse list-unstyled" id="masterSubmenu">
+                    <li><a href="coa.html">Chart of Accounts</a></li>
+                    <li><a href="customers.html">Customers</a></li>
+                    <li><a href="vendors.html">Vendors</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#transSubmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="bi bi-receipt"></i> Transactions
+                </a>
+                <ul class="collapse list-unstyled" id="transSubmenu">
+                    <li><a href="journal.html">Journal Entry</a></li>
+                    <li><a href="sales.html">Sales / Invoices</a></li>
+                    <li><a href="purchase.html">Purchases</a></li>
+                    <li><a href="expenses.html">Expenses</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="reports.html"><i class="bi bi-file-earmark-bar-graph"></i> Reports</a>
+            </li>
+            <li>
+                <a href="settings.html"><i class="bi bi-gear"></i> Settings</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div id="content">
+        <!-- New Topbar Design -->
+        <nav class="navbar navbar-custom">
+            <!-- Left: Sidebar Toggle & Title -->
+            <div class="d-flex align-items-center">
+                <button type="button" id="sidebarCollapse" class="btn btn-link text-dark p-0 me-3">
+                    <i class="bi bi-list fs-4"></i>
+                </button>
+                <h5 class="mb-0 fw-bold">Dashboard</h5>
+            </div>
+
+            <!-- Center: Search Bar -->
+            <div class="search-wrapper">
+                <i class="bi bi-search text-muted"></i>
+                <input type="text" placeholder="Search...">
+                <span class="search-badge">⌘ K</span>
+            </div>
+
+            <!-- Right: Icons & Profile -->
+            <div class="d-flex align-items-center">
+                <div class="top-icon-btn">
+                    <i class="bi bi-envelope"></i>
+                    <span class="notification-dot"></span>
+                </div>
+                <div class="top-icon-btn me-4">
+                    <i class="bi bi-bell"></i>
+                    <span class="notification-dot"></span>
+                </div>
+                
+                <div class="profile-widget">
+                    <img src="assets/img/profile.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Pevita+Sarma&background=random&color=fff'" alt="Profile">
+                    <div class="ms-2 d-none d-lg-block">
+                        <div class="fw-bold fs-6 lh-1">Pevita Sarma</div>
+                        <small class="text-muted" style="font-size: 0.75rem;">Admin</small>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-container">
+            <h4 class="mb-4">Financial Overview (IDR)</h4>
+
+            <!-- KPI Cards -->
+            <div class="row g-4 mb-5">
+                <!-- Card 1: Saldo Kas (Blue/Indigo) -->
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card card-stat stat-primary h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <div class="stat-label">Saldo Kas</div>
+                                    <div class="stat-value text-dark">Rp 1.86 M</div>
+                                </div>
+                                <div class="stat-icon">
+                                    <i class="bi bi-wallet2"></i>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <span class="badge rounded-pill bg-white text-primary border border-primary-subtle me-2">
+                                    <i class="bi bi-arrow-up-right"></i> 5.2%
+                                </span>
+                                <span class="text-muted small">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Pendapatan (Green/Emerald) -->
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card card-stat stat-success h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <div class="stat-label">Pendapatan</div>
+                                    <div class="stat-value text-dark">Rp 678 Jt</div>
+                                </div>
+                                <div class="stat-icon">
+                                    <i class="bi bi-graph-up-arrow"></i>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <span class="badge rounded-pill bg-white text-success border border-success-subtle me-2">
+                                    <i class="bi bi-arrow-up-right"></i> 12%
+                                </span>
+                                <span class="text-muted small">vs last month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Pengeluaran (Red/Rose) -->
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card card-stat stat-danger h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <div class="stat-label">Pengeluaran</div>
+                                    <div class="stat-value text-dark">Rp 275 Jt</div>
+                                </div>
+                                <div class="stat-icon">
+                                    <i class="bi bi-cart-dash"></i>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <span class="badge rounded-pill bg-white text-danger border border-danger-subtle me-2">
+                                    <i class="bi bi-arrow-down-right"></i> 2%
+                                </span>
+                                <span class="text-muted small">saved this month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Net Profit (Purple/Violet) -->
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card card-stat stat-purple h-100">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <div class="stat-label">Laba Bersih</div>
+                                    <div class="stat-value text-dark">Rp 402 Jt</div>
+                                </div>
+                                <div class="stat-icon">
+                                    <i class="bi bi-layers-fill"></i>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mt-2">
+                                <span class="badge rounded-pill bg-white text-primary border border-primary-subtle me-2" style="color: var(--fc-purple) !important; border-color: #d8b4fe !important;">
+                                    Healthy
+                                </span>
+                                <span class="text-muted small">margin ratio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="row g-3 mb-4">
+                <div class="col-lg-8">
+                    <div class="card h-100">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span>Pendapatan vs Pengeluaran (2023)</span>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="revenueChart" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header">Breakdown Biaya</div>
+                        <div class="card-body">
+                            <canvas id="expenseChart" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="card">
+                <div class="card-header">Transaksi Terakhir</div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped mb-0 align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Ref ID</th>
+                                    <th>Tanggal</th>
+                                    <th>Deskripsi</th>
+                                    <th>Entitas</th>
+                                    <th class="text-end">Jumlah</th>
+                                    <th class="text-center">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>INV-00123</td>
+                                    <td>24 Okt 2023</td>
+                                    <td>Jasa Web Development</td>
+                                    <td>PT Teknologi Maju</td>
+                                    <td class="text-end fw-bold text-dark">Rp 37.500.000</td>
+                                    <td class="text-center"><span class="badge bg-success bg-opacity-10 text-success">Lunas</span></td>
+                                </tr>
+                                <tr>
+                                    <td>BILL-882</td>
+                                    <td>23 Okt 2023</td>
+                                    <td>Server Hosting</td>
+                                    <td>AWS Indonesia</td>
+                                    <td class="text-end text-muted">Rp 1.800.000</td>
+                                    <td class="text-center"><span class="badge bg-secondary bg-opacity-10 text-secondary">Cleared</span></td>
+                                </tr>
+                                <tr>
+                                    <td>INV-00124</td>
+                                    <td>22 Okt 2023</td>
+                                    <td>Konsultasi Bisnis</td>
+                                    <td>Mega Corp</td>
+                                    <td class="text-end fw-bold text-dark">Rp 75.000.000</td>
+                                    <td class="text-center"><span class="badge bg-warning bg-opacity-10 text-warning">Pending</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+    // Initialize Charts (Dummy Data in Millions)
+    const ctx1 = document.getElementById('revenueChart');
+    new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: 'Pendapatan (Juta Rp)',
+                data: [450, 525, 480, 675, 630, 750, 825],
+                borderColor: '#10b981',
+                tension: 0.4
+            }, {
+                label: 'Pengeluaran (Juta Rp)',
+                data: [300, 330, 315, 375, 360, 420, 450],
+                borderColor: '#ef4444',
+                tension: 0.4
+            }]
+        }
+    });
+
+    const ctx2 = document.getElementById('expenseChart');
+    new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: ['Gaji', 'Sewa', 'Server', 'Marketing'],
+            datasets: [{
+                data: [45, 20, 15, 20],
+                backgroundColor: ['#3b82f6', '#64748b', '#10b981', '#f59e0b']
+            }]
+        }
+    });
+</script>
+</body>
+</html>
