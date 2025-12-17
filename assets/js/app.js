@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        if (href === currentPath || (currentPath === '' && href === 'dashboard.html')) {
+        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
             // Activate the link
             link.classList.add('active');
 
